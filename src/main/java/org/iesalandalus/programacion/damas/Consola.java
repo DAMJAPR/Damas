@@ -1,6 +1,7 @@
 package org.iesalandalus.programacion.damas;
 
 import org.iesalandalus.programacion.damas.modelo.Color;
+import org.iesalandalus.programacion.damas.modelo.Direccion;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 /**
@@ -88,6 +89,30 @@ public class Consola {
                 ||                               ||
                 -----------------------------------
                 """);
+    }
+
+    // Apartado 5.7.
+    // Método para elegir una dirección del método anterior
+    public static Direccion elegirDireccion(){
+        int opcion = 0;
+        do {
+            try{
+                System.out.println("Por favor, escoge una dirección del menú anterior:");
+                opcion = Entrada.entero();
+            } catch (Exception e){
+                System.out.println("Error: Introduce un número entero válido.");
+            }
+
+        } while (opcion <1 || opcion>4 );
+        System.out.println("La dirección elegida es:");
+
+        return switch (opcion) {
+            case 1 -> Direccion.NORESTE;
+            case 2 -> Direccion.SURESTE;
+            case 3 -> Direccion.SUROESTE;
+            case 4 -> Direccion.NOROESTE;
+            default -> null;
+        };
     }
 
 
