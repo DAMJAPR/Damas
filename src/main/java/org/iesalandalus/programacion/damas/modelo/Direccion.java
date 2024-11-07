@@ -13,4 +13,9 @@ public enum Direccion {
     SUROESTE("Suroeste"),
     NOROESTE("Noroeste");
 
+    // Apartado 1.2. Atributo privado que almacenará la cadena pasada por parámetro
+    private final String cadenaAmostrar;
+
+
+
 }
