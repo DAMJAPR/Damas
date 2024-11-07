@@ -131,4 +131,10 @@ public class Consola {
         return pasos;
     }
 
+    // Apartado 5.9.
+    // Método para despedirse
+    public static String despedirse(){
+        return "Saliendo de la aplicación...\n...¡Gracias por usarla!\n!BYE BYE¡";
+    }
+
 }
