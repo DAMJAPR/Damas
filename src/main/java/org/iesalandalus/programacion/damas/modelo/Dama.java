@@ -50,6 +50,12 @@ public class Dama {
         this.esDamaEspecial = esDamaEspecial;
     }
 
-
+    // Apartado 4.3.
+    // Constructor por defecto
+    public Dama(){
+        this.color = Color.BLANCO;
+        this.posicion = crearPosicionInicial();
+        this.esDamaEspecial = false;
+    }
 
 }
