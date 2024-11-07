@@ -104,7 +104,6 @@ public class Consola {
             }
 
         } while (opcion <1 || opcion>4 );
-        System.out.println("La dirección elegida es:");
 
         return switch (opcion) {
             case 1 -> Direccion.NORESTE;

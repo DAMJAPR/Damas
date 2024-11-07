@@ -67,7 +67,7 @@ public class Dama {
         if (color == null){
             throw new NullPointerException("ERROR: El color no puede ser nulo.");
         }
-        this.color = Color.BLANCO;
+        this.color = color;
         this.posicion = crearPosicionInicial();
         this.esDamaEspecial = false;
     }
@@ -100,7 +100,7 @@ public class Dama {
 
     // Apartado 4.5.
     // Método mover
-    private void mover (Direccion direccion, int pasos) throws OperationNotSupportedException{
+    public void mover (Direccion direccion, int pasos) throws OperationNotSupportedException{
         // Si la dirección es nula, lanzará una excepción
         if (direccion == null) {
             throw new NullPointerException("ERROR: La dirección no puede ser nula.");
@@ -162,5 +162,4 @@ public class Dama {
     public String toString() {
         return "color=" + color + ", posicion=(" + posicion + ")";
     }
-
 }
