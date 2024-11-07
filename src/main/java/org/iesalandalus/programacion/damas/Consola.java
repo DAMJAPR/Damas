@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.damas;
 
+import org.iesalandalus.programacion.damas.modelo.Color;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 /**
@@ -48,5 +49,29 @@ public class Consola {
         } while (opcion < 1 || opcion > 4);
         return opcion;
     }
+
+    // Apartado 5.5.
+    // Método para elegir un color
+    public static Color elegirColor(){
+        String cadenaColor;
+        Color color = null;
+        boolean colorValido = false;
+
+        do {
+            System.out.println("Por favor, introduce un color válido (Blanco/Negro):");
+            cadenaColor = Entrada.cadena();
+
+            if (cadenaColor.equalsIgnoreCase("Blanco")){
+                color = Color.BLANCO;
+                colorValido = true;
+            }else if (cadenaColor.equalsIgnoreCase("Negro")){
+                color = Color.NEGRO;
+                colorValido = true;
+            } else System.out.println("Color no válido. Inténtelo de nuevo.");
+
+        } while (!colorValido);
+        return color;
+    }
+
 
 }
