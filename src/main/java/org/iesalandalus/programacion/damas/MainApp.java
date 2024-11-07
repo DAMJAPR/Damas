@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.damas;
 
+import org.iesalandalus.programacion.damas.modelo.Color;
 import org.iesalandalus.programacion.damas.modelo.Dama;
 
 /**
@@ -39,6 +40,16 @@ public class MainApp {
         System.out.println("...Creando Dama por defecto...");
         dama = new Dama();
         System.out.println("Dama creada por defecto.");
+        mostrarDama();
+    }
+
+    // Apartado 6.4.
+    // Método crearDamaColor
+    private static void crearDamaColor(){
+        Color color = Consola.elegirColor();
+        System.out.println("...Creando Dama eligiendo color...");
+        dama = new Dama(color);
+        System.out.println("Dama creada con el color elegido.");
         mostrarDama();
     }
 
