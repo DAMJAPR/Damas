@@ -156,4 +156,11 @@ public class Dama {
         posicion.setColumna(nuevaColumna);
     }
 
+    // Apartado 4.6.
+    // Método toString()
+    @Override
+    public String toString() {
+        return "color=" + color + ", posicion=(" + posicion + ")";
+    }
+
 }
