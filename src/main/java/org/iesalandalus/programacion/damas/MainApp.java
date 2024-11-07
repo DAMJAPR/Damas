@@ -2,6 +2,9 @@ package org.iesalandalus.programacion.damas;
 
 import org.iesalandalus.programacion.damas.modelo.Color;
 import org.iesalandalus.programacion.damas.modelo.Dama;
+import org.iesalandalus.programacion.damas.modelo.Direccion;
+
+import javax.naming.OperationNotSupportedException;
 
 /**
  *
@@ -50,6 +53,35 @@ public class MainApp {
         System.out.println("...Creando Dama eligiendo color...");
         dama = new Dama(color);
         System.out.println("Dama creada con el color elegido.");
+        mostrarDama();
+    }
+
+    // Apartado 6.5.
+    // Método mover
+    private static void mover() {
+
+        if (dama == null) {
+            System.out.println("Primero debes crear una dama antes de moverla.");
+            return;
+        }
+        System.out.println("...Mostrando el menú de direcciones disponibles...");
+        Consola.mostrarMenuDirecciones();
+
+        Direccion direccion = Consola.elegirDireccion();
+        int pasos = 1;
+
+        // Si la dama es especial, pediremos el número de pasos
+        if (dama.isEsDamaEspecial()) {
+            pasos = Consola.elegirPasos();
+        }
+
+        try {
+            dama.mover(direccion, pasos);
+            System.out.println("Dama movida con éxito.");
+        } catch (OperationNotSupportedException e) {
+            System.out.println("Movimiento no permitido: " + e.getMessage());
+        }
+
         mostrarDama();
     }
 
