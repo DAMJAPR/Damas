@@ -50,4 +50,14 @@ public class Posicion {
         setColumna(columna);
     }
 
+    // Apartado 3.4.
+    // Constructor copia
+    public Posicion (Posicion otraPosicion){
+        if (otraPosicion == null) throw new NullPointerException("Error: No es posible copiar una posición nula.");
+        this.fila = otraPosicion.getFila();
+        this.columna = otraPosicion.getColumna();
+    }
+
+
+
 }
