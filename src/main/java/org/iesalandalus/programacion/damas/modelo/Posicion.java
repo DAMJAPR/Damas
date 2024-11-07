@@ -76,6 +76,11 @@ public class Posicion {
         return Objects.hash(fila, columna);
     }
 
-
+    // Apartado 3.6
+    // Método toString()
+    @Override
+    public String toString() {
+        return "fila=" + fila + ", columna=" + columna;
+    }
 
 }
