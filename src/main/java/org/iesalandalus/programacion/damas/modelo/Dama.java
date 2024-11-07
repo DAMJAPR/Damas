@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.damas.modelo;
 
+import javax.naming.OperationNotSupportedException;
 import java.util.Random;
 
 /**
@@ -73,7 +74,7 @@ public class Dama {
 
     // Apartado 4.4.1.
     // Método para crear una posición aleatoria inicial
-    public Posicion crearPosicionInicial(){
+    private Posicion crearPosicionInicial(){
         Random random = new Random();
         int filaInicial;
         char columnaInicial = ' ';
@@ -96,4 +97,63 @@ public class Dama {
         };
         return new Posicion(filaInicial, columnaInicial);
     }
+
+    // Apartado 4.5.
+    // Método mover
+    private void mover (Direccion direccion, int pasos) throws OperationNotSupportedException{
+        // Si la dirección es nula, lanzará una excepción
+        if (direccion == null) {
+            throw new NullPointerException("ERROR: La dirección no puede ser nula.");
+        }
+        // Si los pasos son menores que uno, lanzará una excepción
+        if (pasos < 1) {
+            throw new IllegalArgumentException("El número de pasos debe ser mayor o igual a 1.");
+        }
+        // Si la dama no es especial, solo puede moverse un paso
+        if (!esDamaEspecial && pasos > 1) {
+            throw new OperationNotSupportedException("ERROR: Las damas normales solo se pueden mover 1 casilla.");
+        }
+        // Validación de movimiento en función del color y la dirección permitida para una dama normal
+        if (!esDamaEspecial) {
+            if (color == Color.BLANCO && (direccion == Direccion.SUROESTE || direccion == Direccion.SURESTE)) {
+                throw new OperationNotSupportedException("ERROR: Movimiento no permitido.");
+            } else if (color == Color.NEGRO && (direccion == Direccion.NORESTE || direccion == Direccion.NOROESTE)) {
+                throw new OperationNotSupportedException("ERROR: Movimiento no permitido.");
+            }
+        }
+        // Cálculo de la nueva posición en función de la dirección
+        int nuevaFila = posicion.getFila();
+        char nuevaColumna = posicion.getColumna();
+        // Según la dirección actualizamos la fila y la columna por la cantidad de pasos
+        switch (direccion) {
+            case NORESTE:
+                nuevaFila += pasos;
+                nuevaColumna += (char) pasos;
+                break;
+            case SURESTE:
+                nuevaFila -= pasos;
+                nuevaColumna += (char) pasos;
+                break;
+            case SUROESTE:
+                nuevaFila -= pasos;
+                nuevaColumna -= (char) pasos;
+                break;
+            case NOROESTE:
+                nuevaFila += pasos;
+                nuevaColumna -= (char) pasos;
+                break;
+        }
+        // Comprobación de los límites del tablero
+        if (nuevaFila < 1 || nuevaFila > 8 || nuevaColumna < 'a' || nuevaColumna > 'h') {
+            throw new OperationNotSupportedException("ERROR: El movimiento sale fuera del tablero.");
+        }
+        // Si la dama llega a la última fila, se convierte en dama especial
+        if ((color == Color.BLANCO && nuevaFila == 8) || (color == Color.NEGRO && nuevaFila == 1)) {
+            setEsDamaEspecial(true);
+        }
+        // Establecemos la nueva posición si el movimiento es válido
+        posicion.setFila(nuevaFila);
+        posicion.setColumna(nuevaColumna);
+    }
+
 }
