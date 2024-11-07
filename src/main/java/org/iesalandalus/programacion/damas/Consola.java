@@ -73,5 +73,23 @@ public class Consola {
         return color;
     }
 
+    // Apartado 5.6.
+    // Método para mostrar el menú de direcciones
+    public static void mostrarMenuDirecciones(){
+        System.out.println("""
+                -----------------------------------
+                ||      MENÚ DE DIRECCIONES      ||
+                -----------------------------------
+                    1.- Noreste.
+                    2.- Sureste.
+                    3.- Suroeste.
+                    4.- Noroeste.
+                -----------------------------------   \s
+                ||                               ||
+                -----------------------------------
+                """);
+    }
+
+
 
 }
