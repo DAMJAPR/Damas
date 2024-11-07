@@ -115,6 +115,20 @@ public class Consola {
         };
     }
 
-
+    // Apartado 5.8.
+    // Método para elegir los pasos
+    public static int elegirPasos(){
+        int pasos = 0;
+        do {
+            try{
+                System.out.println("Introduce el número de casillas que deseas mover la ficha " +
+                        "(Nº entero mayor o igual a 1): ");
+                pasos = Entrada.entero();
+            } catch (Exception e){
+                System.out.println("Error: Introduce un número entero válido.");
+            }
+        } while (pasos < 1);
+        return pasos;
+    }
 
 }
