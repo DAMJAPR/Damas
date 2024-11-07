@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.damas.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author japr
@@ -56,6 +58,22 @@ public class Posicion {
         if (otraPosicion == null) throw new NullPointerException("Error: No es posible copiar una posición nula.");
         this.fila = otraPosicion.getFila();
         this.columna = otraPosicion.getColumna();
+    }
+
+    // Apartado 3.5
+    // Método EQUAL
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Posicion posicion = (Posicion) o;
+        return fila == posicion.fila && columna == posicion.columna;
+    }
+
+    // Método HASHCODE
+    @Override
+    public int hashCode() {
+        return Objects.hash(fila, columna);
     }
 
 
