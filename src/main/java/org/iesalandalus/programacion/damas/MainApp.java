@@ -33,6 +33,15 @@ public class MainApp {
         }
     }
 
+    // Apartado 6.3.
+    // Método crearDamaDefecto
+    private static void crearDamaDefecto(){
+        System.out.println("...Creando Dama por defecto...");
+        dama = new Dama();
+        System.out.println("Dama creada por defecto.");
+        mostrarDama();
+    }
+
 
 
 }
