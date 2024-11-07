@@ -95,6 +95,26 @@ public class MainApp {
         }
     }
 
+    // Apartado 6.7.
+    // Método principal
+    public static void main(String[] args){
+        int opcion;
+
+        System.out.println("""
+                
+                ¡Bienvenido al programa de las Damas!
+
+                Por favor, escoja una opción del siguiente menú ->""");
+        System.out.println();
+
+        do {
+            Consola.mostrarMenu();
+
+            opcion = Consola.elegirOpcionMenu();
+
+            ejecutarOpcion(opcion);
+        } while (opcion != 4);
+    }
 
 
 }
