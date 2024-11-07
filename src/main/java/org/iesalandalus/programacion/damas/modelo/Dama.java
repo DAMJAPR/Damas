@@ -58,4 +58,17 @@ public class Dama {
         this.esDamaEspecial = false;
     }
 
+    // Apartado 4.4
+    // Constructor que acepta como parámetro un Color
+    public Dama (Color color){
+        if (color == null){
+            throw new NullPointerException("ERROR: El color no puede ser nulo.");
+        }
+        this.color = Color.BLANCO;
+        this.posicion = crearPosicionInicial();
+        this.esDamaEspecial = false;
+    }
+
+
+
 }
