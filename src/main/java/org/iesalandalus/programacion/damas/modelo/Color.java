@@ -11,4 +11,7 @@ public enum Color {
     BLANCO("Blanco"),
     NEGRO("Negro");
 
+    // Apartado 2.2.
+    private final String cadenaAMostrar;
+
 }
