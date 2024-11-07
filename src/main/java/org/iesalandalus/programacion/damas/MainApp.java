@@ -85,6 +85,16 @@ public class MainApp {
         mostrarDama();
     }
 
+    // Apartado 6.6.
+    // Método para mostrar la información de la dama
+    private static void mostrarDama() {
+        if (dama != null) {
+            System.out.println("Información de la dama: " + dama);
+        } else {
+            System.out.println("No hay ninguna dama creada actualmente.");
+        }
+    }
+
 
 
 }
