@@ -21,4 +21,10 @@ public enum Direccion {
         this.cadenaAmostrar = cadenaAmostrar;
     }
 
+    // Apartado 1.4. Método toString() que devuelve la representación en forma de cadena del literal
+    @Override
+    public String toString() {
+        return cadenaAmostrar;
+    }
+
 }
